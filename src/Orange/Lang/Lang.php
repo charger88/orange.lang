@@ -114,6 +114,7 @@ class Lang
     /**
      * Get text (translation) from first defined Lang object
      * @param string $selector
+     * @param array $params
      * @param null|string $default
      * @return string
      * @throws \Exception
