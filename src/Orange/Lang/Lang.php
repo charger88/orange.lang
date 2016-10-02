@@ -118,11 +118,12 @@ class Lang
      * @return string
      * @throws \Exception
      */
-    public static function t($selector, $default = null){
+    public static function t($selector, $params = [], $default = null){
         if (!static::$instances){
             throw new \Exception('Language object is not created yet.');
         }
-        return static::$instances[key(static::$instances)]->get($selector, $default);
+        $text = static::$instances[key(static::$instances)]->get($selector, $default);
+        return $params ? vsprintf($text, $params) : $text;
     }
 
     /**
